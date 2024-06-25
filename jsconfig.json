@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "@events*": ["src/events/shared*"],
+      "@utils": ["src/shared/utils/index.js"],
+      "@components": ["src/shared/components/index.js"],
+      "@hooks": ["src/shared/utils/hooks/index.js"],
+      "@helpers": ["src/shared/utils/helpers/index.js"],
+      "@reducers": ["src/shared/store/reducers/index.js"],
+      "@actions": ["src/shared/store/actions/index.js"],
+      "@selectors": ["src/shared/store/selectors/index.js"],
+      "@models": ["src/shared/utils/models/index.js"],
+      "@utils*": ["src/shared/utils*"],
+      "@store*": ["src/shared/store*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

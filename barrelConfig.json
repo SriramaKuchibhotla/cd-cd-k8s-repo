@@ -1,0 +1,24 @@
+{
+  "paths": [
+    "src/shared/utils/helpers",
+    "src/shared/utils/hooks",
+    "src/shared/utils/models",
+    "src/shared/utils/yup",
+    "src/shared/utils/routes/tabs/registration",
+    "src/shared/store/selectors",
+    "src/shared/store/actions",
+    "src/shared/store/reducers",
+    "src/shared/components/modals",
+    "src/shared/components",
+    "src/core/containers",
+    "src/jump/containers",
+    "src/24seven/containers",
+    "src/nuvo/containers",
+    "src/radix/containers",
+    "src/rn/containers",
+    "src/tda/containers",
+    "src/dp/containers",
+    "src/kaos/containers",
+    "src/aftermath/containers"
+  ]
+}

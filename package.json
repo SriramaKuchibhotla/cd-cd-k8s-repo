@@ -1,0 +1,595 @@
+{
+  "name": "dance360-react",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "description": "Dance360 React",
+  "main": "src/index.jsx",
+  "repository": "",
+  "author": "DanceOne",
+  "scripts": {
+    "init": "bake init",
+    "config": "bake config",
+    "start:core": "bake core",
+    "start:core:admin": "bake core:admin",
+    "build:core": "bake build core:staging",
+    "deploy:core": "bake deploy core:prod",
+    "staging:core": "bake deploy core:staging",
+    "start:jump": "bake jump",
+    "start:jump:admin": "bake jump:admin",
+    "build:jump": "bake build jump:staging",
+    "deploy:jump": "bake deploy jump:prod",
+    "staging:jump": "bake deploy jump:staging",
+    "start:nuvo": "bake nuvo",
+    "start:nuvo:admin": "bake nuvo:admin",
+    "build:nuvo": "bake build nuvo:staging",
+    "deploy:nuvo": "bake deploy nuvo:prod",
+    "staging:nuvo": "bake deploy nuvo:staging",
+    "start:24seven": "bake 24seven",
+    "start:24seven:admin": "bake 24seven:admin",
+    "build:24seven": "bake build 24seven:staging",
+    "deploy:24seven": "bake deploy 24seven:prod",
+    "staging:24seven": "bake deploy 24seven:staging",
+    "start:radix": "bake radix",
+    "start:radix:admin": "bake radix:admin",
+    "build:radix": "bake build radix:staging",
+    "deploy:radix": "bake deploy radix:prod",
+    "staging:radix": "bake deploy radix:staging",
+    "start:tda": "bake tda",
+    "start:tda:admin": "bake tda:admin",
+    "build:tda": "bake build tda:staging",
+    "deploy:tda": "bake deploy tda:prod",
+    "staging:tda": "bake deploy tda:staging",
+    "start:rn": "bake rn",
+    "start:rn:admin": "bake rn:admin",
+    "build:rn": "bake build rn:staging",
+    "deploy:rn": "bake deploy rn:prod",
+    "staging:rn": "bake deploy rn:staging",
+    "start:dp": "bake dp",
+    "start:dp:admin": "bake dp:admin",
+    "build:dp": "bake build dp:staging",
+    "deploy:dp": "bake deploy dp:prod",
+    "staging:dp": "bake deploy dp:staging",
+    "start:kaos": "bake kaos",
+    "start:kaos:admin": "bake kaos:admin",
+    "build:kaos": "bake build kaos:staging",
+    "deploy:kaos": "bake deploy kaos:prod",
+    "staging:kaos": "bake deploy kaos:staging",
+    "start:am": "bake aftermath",
+    "start:am:admin": "bake aftermath:admin",
+    "deploy:am": "bake deploy aftermath:prod",
+    "staging:am": "bake deploy aftermath:staging",
+    "deploy:nationals": "bake deploy rn:prod tda:prod aftermath:prod",
+    "deploy:tours": "bake deploy jump:prod nuvo:prod 24seven:prod radix:prod kaos:prod",
+    "staging:tours": "bake deploy jump:staging nuvo:staging 24seven:staging radix:staging kaos:staging",
+    "deploy:all": "bake deploy core:prod jump:prod nuvo:prod 24seven:prod radix:prod rn:prod tda:prod dp:prod kaos:prod aftermath:prod",
+    "lint": "eslint src/. --ext .js,.jsx",
+    "barrel": "node generateBarrels"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^1.3.5",
+    "@reduxjs/toolkit": "^1.5.0",
+    "@sourceteam/react-boilerplate": "*",
+    "axios": "0.21.1",
+    "bootstrap": "^4.4.1",
+    "braintree-web": "^3.76.1",
+    "btf-jwplayer8": "^1.0.0",
+    "classnames": "^2.2.6",
+    "cleave.js": "1.5.10",
+    "formik": "^2.2.6",
+    "hellosign-embedded": "^2.9.0",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.31",
+    "popper.js": "^1.16.1",
+    "query-string": "^7.0.0",
+    "react": "17.0.0",
+    "react-bootstrap": "^1.5.1",
+    "react-cookie": "^4.0.3",
+    "react-copy-to-clipboard": "^5.0.3",
+    "react-dom": "17.0.0",
+    "react-dropzone": "^10.2.2",
+    "react-facebook-pixel": "^1.0.3",
+    "react-gtm-module": "^2.0.8",
+    "react-hook-form": "^6.15.4",
+    "react-idle-timer": "^4.6.0",
+    "react-jw-player": "^1.19.1",
+    "react-phone-number-input": "^3.0.22",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.0",
+    "react-select": "^3.1.0",
+    "react-text-mask": "^5.4.3",
+    "react-toastify": "^5.1.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "socket.io-client": "^2.3.0",
+    "sweetalert2": "^10.15.5",
+    "sweetalert2-react-content": "^3.3.1",
+    "use-debounce": "^6.0.0",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "1.19.1"
+  },
+  "bake": {
+    "default": {
+      "options": {
+        "template": "src/index.html",
+        "assets": "https://assets.dance360.com/dance360"
+      },
+      "alias": {
+        "@components$": "src/shared/components/index.js",
+        "@utils$": "src/shared/utils/index.js",
+        "@hooks$": "src/shared/utils/hooks/index.js",
+        "@models$": "src/shared/utils/models/index.js",
+        "@helpers$": "src/shared/utils/helpers/index.js",
+        "@yup$": "src/shared/utils/yup/index.js",
+        "@reducers$": "src/shared/store/reducers/index.js",
+        "@actions$": "src/shared/store/actions/index.js",
+        "@selectors$": "src/shared/store/selectors/index.js",
+        "@utils": "src/shared/utils",
+        "@store": "src/shared/store",
+        "@routes/tabs/registration": "src/shared/utils/routes/tabs/registration"
+      }
+    },
+    "core": {
+      "mixin": "default",
+      "options": {
+        "port": 3000,
+        "entry": "src/core/Core.jsx",
+        "output": "dist/core",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/core/containers/index.js",
+        "@constants": "src/core/core.constants.js"
+      }
+    },
+    "core:admin": {
+      "mixin": "core",
+      "options": {
+        "admin": true
+      }
+    },
+    "core:prod": {
+      "mixin": "core",
+      "options": {
+        "bucket": "dance360.com",
+        "distribution_id": "E2G5J40NXK52L5"
+      }
+    },
+    "core:staging": {
+      "mixin": "core",
+      "options": {
+        "bucket": "d360test.com",
+        "distribution_id": "E21WX100A5VFDU"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "jump": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/jump/Jump.jsx",
+        "output": "dist/jump",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/jump/containers/index.js",
+        "@constants": "src/jump/jump.constants.js"
+      }
+    },
+    "jump:admin": {
+      "mixin": "jump",
+      "options": {
+        "admin": true
+      }
+    },
+    "jump:prod": {
+      "mixin": "jump",
+      "options": {
+        "bucket": "jump.dance360.com",
+        "distribution_id": "E2IBY9L3MUOSI3",
+        "template": "src/jump/index.html"
+      }
+    },
+    "jump:staging": {
+      "mixin": "jump",
+      "options": {
+        "bucket": "jump.d360test.com",
+        "distribution_id": "E3VFE1XY9GW0T7"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "nuvo": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/nuvo/Nuvo.jsx",
+        "output": "dist/nuvo",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/nuvo/containers/index.js",
+        "@constants": "src/nuvo/nuvo.constants.js"
+      }
+    },
+    "nuvo:admin": {
+      "mixin": "nuvo",
+      "options": {
+        "admin": true
+      }
+    },
+    "nuvo:prod": {
+      "mixin": "nuvo",
+      "options": {
+        "bucket": "nuvo.dance360.com",
+        "distribution_id": "E2DIVCK2B9NFVJ",
+        "template": "src/nuvo/index.html"
+      }
+    },
+    "nuvo:staging": {
+      "mixin": "nuvo",
+      "options": {
+        "bucket": "nuvo.d360test.com",
+        "distribution_id": "E929NIAG26X9V"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "24seven": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/24seven/24Seven.jsx",
+        "output": "dist/24seven",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/24seven/containers/index.js",
+        "@constants": "src/24seven/24seven.constants.js"
+      }
+    },
+    "24seven:admin": {
+      "mixin": "24seven",
+      "options": {
+        "admin": true
+      }
+    },
+    "24seven:prod": {
+      "mixin": "24seven",
+      "options": {
+        "bucket": "24seven.dance360.com",
+        "distribution_id": "E16VVZHB4WLWN9",
+        "template": "src/24seven/index.html"
+      }
+    },
+    "24seven:staging": {
+      "mixin": "24seven",
+      "options": {
+        "bucket": "24seven.d360test.com",
+        "distribution_id": "E39OXGQR0W4FCK"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "radix": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/radix/Radix.jsx",
+        "output": "dist/radix",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/radix/containers/index.js",
+        "@constants": "src/radix/radix.constants.js"
+      }
+    },
+    "radix:admin": {
+      "mixin": "radix",
+      "options": {
+        "admin": true
+      }
+    },
+    "radix:prod": {
+      "mixin": "radix",
+      "options": {
+        "bucket": "radix.dance360.com",
+        "distribution_id": "E1KIRYDGI2R269",
+        "template": "src/radix/index.html"
+      }
+    },
+    "radix:staging": {
+      "mixin": "radix",
+      "options": {
+        "bucket": "radix.d360test.com",
+        "distribution_id": "E2CCNNRMIA6M9Y"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "tda": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/tda/Tda.jsx",
+        "output": "dist/tda",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/tda/containers/index.js",
+        "@constants": "src/tda/tda.constants.js"
+      }
+    },
+    "tda:admin": {
+      "mixin": "tda",
+      "options": {
+        "admin": true
+      }
+    },
+    "tda:prod": {
+      "mixin": "tda",
+      "options": {
+        "bucket": "thedanceawards.dance360.com",
+        "distribution_id": "E1IKJ02YYNJI3P"
+      }
+    },
+    "tda:staging": {
+      "mixin": "tda",
+      "options": {
+        "bucket": "thedanceawards.d360test.com",
+        "distribution_id": "E279KTRXWE13YT"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "rn": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/rn/Rn.jsx",
+        "output": "dist/rn",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/rn/containers/index.js",
+        "@constants": "src/rn/rn.constants.js"
+      }
+    },
+    "rn:admin": {
+      "mixin": "rn",
+      "options": {
+        "admin": true
+      }
+    },
+    "rn:prod": {
+      "mixin": "rn",
+      "options": {
+        "bucket": "radixnationals.dance360.com",
+        "distribution_id": "E1U7W03ZRQ9M74"
+      }
+    },
+    "rn:staging": {
+      "mixin": "rn",
+      "options": {
+        "bucket": "radixnationals.d360test.com",
+        "distribution_id": "E19X40M7YZGL3V"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "dp": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/dp/Dp.jsx",
+        "output": "dist/dp",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/dp/containers/index.js",
+        "@constants": "src/dp/dp.constants.js"
+      }
+    },
+    "dp:admin": {
+      "mixin": "dp",
+      "options": {
+        "admin": true
+      }
+    },
+    "dp:prod": {
+      "mixin": "dp",
+      "options": {
+        "bucket": "dancerpalooza.dance360.com",
+        "distribution_id": "E3MS4QS5DTUIC5"
+      }
+    },
+    "dp:staging": {
+      "mixin": "dp",
+      "options": {
+        "bucket": "dancerpalooza.d360test.com",
+        "distribution_id": "E2INVBB71XOM0N"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "kaos": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/kaos/Kaos.jsx",
+        "output": "dist/kaos",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/kaos/containers/index.js",
+        "@constants": "src/kaos/kaos.constants.js"
+      }
+    },
+    "kaos:admin": {
+      "mixin": "kaos",
+      "options": {
+        "admin": true
+      }
+    },
+    "kaos:prod": {
+      "mixin": "kaos",
+      "options": {
+        "bucket": "kaos.dance360.com",
+        "distribution_id": "E10XVFUMAXQYKT",
+        "template": "src/kaos/index.html"
+      }
+    },
+    "kaos:staging": {
+      "mixin": "kaos",
+      "options": {
+        "bucket": "kaos.d360test.com",
+        "distribution_id": "E15DZERU3MEV0P"
+      },
+      "env": {
+        "staging": true
+      }
+    },
+    "aftermath": {
+      "mixin": "default",
+      "options": {
+        "port": 3100,
+        "entry": "src/aftermath/Aftermath.jsx",
+        "output": "dist/aftermath",
+        "faviconPath": ""
+      },
+      "alias": {
+        "@containers$": "src/aftermath/containers/index.js",
+        "@constants": "src/aftermath/aftermath.constants.js"
+      }
+    },
+    "aftermath:admin": {
+      "mixin": "aftermath",
+      "options": {
+        "admin": true
+      }
+    },
+    "aftermath:prod": {
+      "mixin": "aftermath",
+      "options": {
+        "bucket": "aftermath.dance360.com",
+        "distribution_id": "E2PM0C4L8L0CB0"
+      }
+    },
+    "aftermath:staging": {
+      "mixin": "aftermath",
+      "options": {
+        "bucket": "aftermath.d360test.com",
+        "distribution_id": "E3QR8AB9GXG9BO"
+      },
+      "env": {
+        "staging": true
+      }
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ],
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 9,
+      "sourceType": "module"
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "env": {
+      "node": true,
+      "browser": true,
+      "es6": true
+    },
+    "rules": {
+      "indent": 0,
+      "react/prop-types": 0,
+      "react/no-unescaped-entities": 0,
+      "no-console": 0,
+      "arrow-parens": 0,
+      "no-param-reassign": 0,
+      "import/no-unresolved": 0,
+      "operator-linebreak": 0,
+      "no-nested-ternary": 0,
+      "no-restricted-syntax": [
+        "error",
+        "ForInStatement",
+        "LabeledStatement",
+        "WithStatement"
+      ],
+      "space-before-function-paren": 0,
+      "no-continue": 0,
+      "no-confusing-arrow": 0,
+      "implicit-arrow-linebreak": 0,
+      "no-plusplus": 0,
+      "object-curly-newline": 0,
+      "function-paren-newline": 0,
+      "class-methods-use-this": 0,
+      "max-classes-per-file": 0,
+      "camelcase": 0,
+      "prefer-destructuring": [
+        "error",
+        {
+          "object": true,
+          "array": false
+        }
+      ],
+      "no-underscore-dangle": 0,
+      "no-bitwise": 0,
+      "no-constant-condition": 0,
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": false,
+          "classes": false
+        }
+      ],
+      "import/no-dynamic-require": 0,
+      "global-require": 0,
+      "require-atomic-updates": 0
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
